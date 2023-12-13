@@ -1,0 +1,171 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Task_1.Models.registerModel
+
+
+@{ Layout = null; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #0c4da2;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #ff0000;
+            }
+
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid" style="margin-left:30%">
+        <img src="~/Images/logo.jpg" style="margin-left:15%;" />
+
+        @using (Html.BeginForm("loginUser", "Project", FormMethod.Post))
+        {
+
+
+    <form id="signupForm">
+        <label for="name"><b>Name:<span>*</span></b></label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="emailId"><b>email  ID:<span>*</span></b></label>
+        <input type="email" id="emailId" name="emailId" required>
+        <div class="alert-danger" id="sucmsg"></div>
+        <label for="password"><b>Password:<span>*</span></b></label>
+        <input type="password" id="password" name="decryptedPassword" required onblur="fnValidatePassword()">
+
+
+
+        <button type="submit" id="btnsignup">Login</button><br /><br />
+        <input type="button" value="clear" onclick="clearForm()">
+        <p> if you don't have an Account? Click on Register  button <a href="/Project/Index" class="text-decoration-none"> Register</a></p>
+        <h1>@TempData["error"]</h1>
+    </form>
+        }
+
+
+    </div>
+
+
+</body>
+</html>
+
+
+
+
+<script>
+   @* function login() {
+
+
+        var emailId = $("#emailId").val();
+        var decryptedPassword = $("#password").val();
+        var cnfrmpassword = $("#cnfrmpassword").val();
+
+
+        var obj = {
+
+            emailId: emailId,
+            decryptedPassword: decryptedPassword
+        };
+
+
+        $.ajax({
+            type: "POST",
+            url: "/Project/loginUser",
+            data: obj,
+            success: function (result) {
+                //  debugger;
+                if (result.status) {
+                    alert(result.message);
+                    document.getElementById("sucmsg").innerHTML = result['message'];
+                    window.location.href = "/Dashboard/Index"
+                    document.getElementById("signupForm").reset();
+                } else {
+                    alert(result.message);
+                    document.getElementById("sucmsg").innerHTML = result['message'];
+                }
+            },
+            error: function (error) {
+                alert(error.message)
+                console.error(error);
+            }
+        });
+    }*@
+</script>
+
+
+<script>
+
+    function clearForm() {
+        console.log("form clear");
+        document.getElementById("signupForm").reset();
+        $('#matchMessage').html(''); // Clear the error message
+    }
+
+    function fnValidatePassword() {
+        var password = document.getElementById("password").value;
+        var cnfrmpassword = document.getElementById("cnfrmpassword").value;
+        var matchMessage = document.getElementById("matchMessage");
+
+        if (password === "" || cnfrmpassword === "") {
+            matchMessage.innerHTML = "Both fields are required.";
+        } else if (password !== cnfrmpassword) {
+            matchMessage.innerHTML = "Passwords do not match.";
+        } else {
+            matchMessage.innerHTML = "";
+        }
+    }
+</script>
+

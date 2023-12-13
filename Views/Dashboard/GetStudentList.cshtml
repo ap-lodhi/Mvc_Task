@@ -1,0 +1,219 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+
+@using Task_1.Models;
+
+@{ ViewBag.Title = "student List"; }
+
+
+@{ Layout = null; }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav {
+            background-color: #0c4da2;
+        }
+
+        .nav-link {
+            color: white;
+        }
+
+            .nav-link:hover {
+                color: darkorange;
+            }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin-top: 4%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #0c4da2;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: darkorange;
+            }
+
+        span {
+            color: red;
+        }
+
+        .navbarCenter {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: 90px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+            <img src="~/Images/logo.jpg" />
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navbarCenter">
+                <ul class="navbar-nav ">
+                    <li class="nav-item">
+                        <a class="nav-link active fs-4" aria-current="page" href="/Dashboard/GetRoleList">Role Master</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4" href="/Dashboard/GetDepList">Department Master</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4" href="#">Student Master</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+
+            </div>
+            <ul class="navbar-nav ">
+                <li class="nav-item">
+                    <p class="fs-3 text-white">@ViewBag.sess</p>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2>Student  Table</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Student ID</th>
+                    <th scope="col">Student first Name</th>
+                    <th scope="col">Student Last Name </th>
+                    <th scope="col">Student Email </th>
+                    <th scope="col">Student Phone </th>
+                    <th scope="col">Created Date</th>
+                    <th scope="col">Is Active</th>
+                    <th scope="col">Is Deleted</th>
+                    <th>
+
+                        <a class="fs-3  p-2 text-white bg-secondary  text-decoration-none" href="/Dashboard/Student">+ </a>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model as List<StudentModel>)
+                {
+                    <tr>
+                        <td>@item.Student_id</td>
+                        <td>@item.Student_fisrt_Name</td>
+                        <td>@item.Student_Last_Name</td>
+                        <td>@item.Student_Email</td>
+                        <td>@item.Student_Phone</td>
+                        <td>@item.created_date.ToString("dd/MM/yyyy")</td>
+                        <td>@item.Is_active</td>
+                        <td>@item.Is_Deleted</td>
+                        <td>
+                            <button onclick="StudentDel(@item.Student_id)" class="btn-danger ml-3">Delete</button>
+                            @Html.ActionLink("Edit", "EditStu", new { id = item.Student_id })
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script>
+
+        function StudentDel(id) {
+            console.log(id)
+            console.log("btn click")
+            //  let obj = {}
+            var a = confirm("Are you sure want to delete this project");
+            if (a == true) {
+                // obj.id = id;
+
+                $.ajax({
+                    url: "/Dashboard/DeleteStudent?id=" + id,
+                    type: "DELETE",
+
+                    // debugger;
+                    success: function (data) {
+                        alert("Deleted sucessfuly");
+                        location.reload();
+                    },
+                    error: function (err) {
+                        console.error(err.message);
+                        return;
+                    },
+                });
+            }
+
+
+        }
+    </script>
+</body>
+
+
+</html>
+
+
+
+
+<script>
+
+</script>
+
+
+

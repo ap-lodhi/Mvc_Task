@@ -1,0 +1,30 @@
+DD-11-2023 10-58-06The error is:System.NullReferenceException: Object reference not set to an instance of an object.
+   at Task_1.Dal.DepartmentClass.Depuser(DeparmentModel M) in C:\Users\mrapl\source\repos\Task_1\Task_1\Dal\DepartmentClass.cs:line 36
+DD-11-2023 11-01-05The error is:System.Data.SqlClient.SqlException (0x80131904): There is already an object named 'college_admission_master' in the database.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Task_1.Dal.StudentClass.addStudent(StudentModel M) in C:\Users\mrapl\source\repos\Task_1\Task_1\Dal\StudentClass.cs:line 44
+ClientConnectionId:c0f3b0b2-ec41-44ea-abd3-22806d3f3f0f
+Error Number:2714,State:6,Class:16
+DD-11-2023 11-03-19The error is:System.Data.SqlClient.SqlException (0x80131904): There is already an object named 'college_admission_master' in the database.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Task_1.Dal.StudentClass.addStudent(StudentModel M) in C:\Users\mrapl\source\repos\Task_1\Task_1\Dal\StudentClass.cs:line 44
+ClientConnectionId:c0f3b0b2-ec41-44ea-abd3-22806d3f3f0f
+Error Number:2714,State:6,Class:16
+DD-11-2023 17-45-56The error is:System.NullReferenceException: Object reference not set to an instance of an object.
+   at Task_1.Dal.RegUserClass.loginUser(registerModel objmodel) in C:\Users\mrapl\source\repos\Task_1\Task_1\Dal\RegUserClass.cs:line 205

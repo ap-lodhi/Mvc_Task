@@ -1,0 +1,2 @@
+DD-11-2023 11-06-42The error is:System.NullReferenceException: Object reference not set to an instance of an object.
+   at Task_1.Dal.RoleMaster.roleuser(RoleModel M)
