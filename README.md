@@ -41,4 +41,4 @@ Admission Master is a web application that allows users to register using their 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/admission-master.git
+ https://github.com/ap-lodhi/Mvc_Task.git
